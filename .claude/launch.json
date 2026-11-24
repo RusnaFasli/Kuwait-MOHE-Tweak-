@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mohe-static",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "-e",
+        "const h=require('http'),f=require('fs'),p=require('path');const root=process.cwd();const t={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png'};h.createServer((q,s)=>{let u=decodeURIComponent(q.url.split('?')[0]);if(u.endsWith('/'))u+='index.html';const file=p.join(root,u);if(!file.startsWith(root)){s.writeHead(403);return s.end()}f.readFile(file,(e,d)=>{if(e){s.writeHead(404);return s.end('Not found')}s.writeHead(200,{'Content-Type':t[p.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});s.end(d)})}).listen(4173,'127.0.0.1')"
+      ],
+      "port": 4173
+    }
+  ]
+}

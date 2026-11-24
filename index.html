@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Services | Ministry of Higher Education – State of Kuwait</title>
+  <meta name="description" content="Find the right Ministry of Higher Education service for you. Tell us what you’re here to do, or search directly.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================ Site header ============================ -->
+  <header class="site-header">
+    <a class="logo" href="#" aria-label="Ministry of Higher Education, State of Kuwait – home">
+      <img class="logo__wordmark" src="assets/images/logo-mohe.png" alt="" width="177" height="53">
+      <img class="logo__emblem" src="assets/images/emblem-kuwait.png" alt="" width="73" height="83">
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="visually-hidden">Menu</span>
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <div class="site-header__menu" id="site-menu">
+      <ul class="utility-nav">
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Accessibility</a></li>
+        <li>
+          <a class="utility-nav__lang" href="#" lang="ar" hreflang="ar">
+            <span>عَرَبِيّ</span>
+            <span class="utility-nav__flag" aria-hidden="true">
+              <img src="assets/images/flag-kuwait.png" alt="" width="14" height="14">
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="site-header__main">
+        <nav aria-label="Primary">
+          <ul class="primary-nav">
+            <li><a href="#">About us <img src="assets/icons/chevron-down.svg" alt="" width="24" height="24"></a></li>
+            <li><a href="index.html" aria-current="page">E-Services <img src="assets/icons/chevron-down.svg" alt="" width="24" height="24"></a></li>
+            <li><a href="#">Scholarships <img src="assets/icons/chevron-down.svg" alt="" width="24" height="24"></a></li>
+            <li><a href="#">Ministerial Decisions <img src="assets/icons/chevron-down.svg" alt="" width="24" height="24"></a></li>
+            <li><a href="#">Media Center</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-header__actions">
+          <button class="icon-button" type="button" data-focus-search aria-label="Search services">
+            <img src="assets/icons/search.svg" alt="" width="24" height="24">
+          </button>
+          <div class="site-header__buttons">
+            <a class="btn btn--accent" href="#">Track Status</a>
+            <a class="btn btn--primary" href="#">Set Appointment</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== Hero ============================== -->
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero__decor" aria-hidden="true">
+        <img class="hero__pattern" src="assets/images/hero-pattern.svg" alt="" width="683" height="500">
+        <div class="hero__towers">
+          <img src="assets/images/hero-kuwait-towers.png" alt="" width="1122" height="1402">
+        </div>
+      </div>
+
+      <div class="container hero__inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="#">Home</a></li>
+            <li><a href="#" aria-current="page">E-Services</a></li>
+          </ol>
+        </nav>
+
+        <div class="hero__heading">
+          <h1 id="page-title">Find the right service for you</h1>
+          <p>Tell us what you’re here to do, or search directly.</p>
+        </div>
+
+        <form class="search" role="search" action="#" data-search>
+          <div class="search__field">
+            <img class="search__icon" src="assets/icons/search.svg" alt="" width="24" height="24">
+            <label class="visually-hidden" for="service-search">Search services</label>
+            <input class="search__input" id="service-search" type="text" name="q"
+                   placeholder="Search services — e.g. scholarship, equivalency, certificate"
+                   autocomplete="off" spellcheck="false"
+                   role="combobox" aria-expanded="false" aria-controls="search-results"
+                   aria-autocomplete="list">
+            <button class="search__submit" type="submit" tabindex="-1">Search</button>
+          </div>
+          <ul class="search__results" id="search-results" role="listbox" aria-label="Suggested services" hidden></ul>
+          <p class="visually-hidden" role="status" aria-live="polite" data-search-status></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========================= Service listing ========================= -->
+    <div class="services">
+      <div class="container services__inner">
+
+        <section class="catalogue" aria-labelledby="catalogue-title" data-catalogue>
+          <h2 class="section__title" id="catalogue-title">Service Catalogue</h2>
+
+          <div class="catalogue__tabs" role="group" aria-label="Filter services by audience">
+            <button class="catalogue__tab" type="button" data-tab="all" aria-pressed="true">All</button>
+            <button class="catalogue__tab" type="button" data-tab="individual" aria-pressed="false">Individual</button>
+            <button class="catalogue__tab" type="button" data-tab="business" aria-pressed="false">Business</button>
+            <button class="catalogue__tab" type="button" data-tab="popular" aria-pressed="false">Popular</button>
+          </div>
+
+          <div class="catalogue__layout">
+            <form class="catalogue__sidebar" action="#" data-catalogue-filters>
+              <div class="filter-search">
+                <label class="visually-hidden" for="catalogue-search">Search for a service</label>
+                <input id="catalogue-search" type="text" name="filter" placeholder="Search for a service" autocomplete="off" spellcheck="false">
+                <img src="assets/icons/search.svg" alt="" width="20" height="20">
+              </div>
+
+              <fieldset class="filter-group">
+                <legend>By Category</legend>
+                <label class="radio">
+                  <input type="radio" name="category" value="all" checked>
+                  <span>All Services</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="category" value="registration">
+                  <span>Registration &amp; Scholarships</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="category" value="recognition">
+                  <span>Recognition</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="category" value="verification">
+                  <span>Verification</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="category" value="licensing">
+                  <span>Licensing &amp; Compliance</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="category" value="student">
+                  <span>Student Services</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="category" value="academic">
+                  <span>Academic Services</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="category" value="inquiries">
+                  <span>Inquiries &amp; Feedback</span>
+                </label>
+              </fieldset>
+
+              <button class="catalogue__clear" type="reset">Clear filters</button>
+            </form>
+
+            <div class="catalogue__results">
+              <div class="catalogue__toolbar">
+                <p class="catalogue__count" role="status" aria-live="polite" data-catalogue-count>Showing (14) services</p>
+                <div class="catalogue__views" role="group" aria-label="Layout">
+                  <button class="icon-toggle" type="button" data-view="grid" aria-pressed="true" aria-label="Grid view">
+                    <img src="assets/icons/view-grid.svg" alt="" width="20" height="20">
+                  </button>
+                  <button class="icon-toggle" type="button" data-view="list" aria-pressed="false" aria-label="List view">
+                    <img src="assets/icons/view-list.svg" alt="" width="20" height="20">
+                  </button>
+                </div>
+                <button class="icon-toggle icon-toggle--sort" type="button" data-sort="default" aria-label="Sort services: default order">
+                  <img src="assets/icons/sort.svg" alt="" width="20" height="20">
+                </button>
+              </div>
+
+              <ul class="catalogue__grid" data-catalogue-grid>
+              <li class="catalogue__item" data-service data-category="registration" data-audience="individual" data-popular="true">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-study.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Application for Scholarship">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Application for Scholarship</h3>
+                    <p class="service-card__desc">Apply for a fully funded scholarship to study abroad at top-ranked universities.</p>
+                  </div>
+                  <a class="service-card__link" href="application-for-scholarship.html">
+                    Start Service<span class="visually-hidden">: Application for Scholarship</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="recognition" data-audience="individual" data-popular="true">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-abroad.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Recognition of Higher Education Qualifications Issued Outside Kuwait">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Recognition of Higher Education Qualifications Issued Outside Kuwait</h3>
+                    <p class="service-card__desc">Request equivalency for a certificate issued outside Kuwait.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Recognition of Higher Education Qualifications Issued Outside Kuwait</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="registration" data-audience="individual" data-popular="true">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-study.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Registration at Higher Education Institutions">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Registration at Higher Education Institutions</h3>
+                    <p class="service-card__desc">Search accredited universities and majors inside and outside Kuwait.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Registration at Higher Education Institutions</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="academic" data-audience="individual" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/service-book.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Academic Services for University Students">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Academic Services for University Students</h3>
+                    <p class="service-card__desc">Manage academic records, transcripts and course information.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Academic Services for University Students</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="student" data-audience="individual" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-studying.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Request Study Support and Academic Guidance">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Request Study Support and Academic Guidance</h3>
+                    <p class="service-card__desc">Request academic and personal support during your studies.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Request Study Support and Academic Guidance</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="inquiries" data-audience="individual business" data-popular="true">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-inquiries.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Submit Inquiry">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Submit Inquiry</h3>
+                    <p class="service-card__desc">Reach the Ministry for general enquiries and assistance.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Submit Inquiry</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="student" data-audience="individual" data-popular="true">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-studying.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Check Application Status">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Check Application Status</h3>
+                    <p class="service-card__desc">Track the status of a submitted application.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Check Application Status</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="inquiries" data-audience="individual" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-inquiries.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Submit Complaint">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Submit Complaint</h3>
+                    <p class="service-card__desc">Submit and follow up on a study-related grievance.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Submit Complaint</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="registration" data-audience="individual" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-study.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Admissions Guidance for Prospective Students">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Admissions Guidance for Prospective Students</h3>
+                    <p class="service-card__desc">Get guidance on admission requirements and procedures.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Admissions Guidance for Prospective Students</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="verification" data-audience="individual" data-popular="true">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-abroad.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share To Whom It May Concern Certificate – Verification of Certificate Authenticity">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">To Whom It May Concern Certificate – Verification of Certificate Authenticity</h3>
+                    <p class="service-card__desc">Attest academic certificates for official use.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: To Whom It May Concern Certificate – Verification of Certificate Authenticity</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="inquiries" data-audience="individual business" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-inquiries.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Submit Suggestion">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Submit Suggestion</h3>
+                    <p class="service-card__desc">Connect with fellow graduates and Ministry alumni programmes.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Submit Suggestion</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="verification" data-audience="business" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-abroad.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Verification of Institutional Accreditation Status">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Verification of Institutional Accreditation Status</h3>
+                    <p class="service-card__desc">Check the accreditation status of an institution or programme.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Verification of Institutional Accreditation Status</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="licensing" data-audience="business" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-institution.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Licensing of Private Universities and Colleges">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Licensing of Private Universities and Colleges</h3>
+                    <p class="service-card__desc">Apply for or renew a private university council license.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Licensing of Private Universities and Colleges</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              <li class="catalogue__item" data-service data-category="licensing" data-audience="business" data-popular="false">
+                <article class="service-card">
+                  <div class="service-card__top">
+                    <span class="service-card__icon"><img src="assets/icons/intent-institution.svg" alt="" width="28" height="28"></span>
+                    <button class="service-card__share" type="button" data-share aria-label="Share Submit Institutional Compliance Report">
+                      <img src="assets/icons/share.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Submit Institutional Compliance Report</h3>
+                    <p class="service-card__desc">Submit required institutional reports to the Ministry.</p>
+                  </div>
+                  <a class="service-card__link" href="#">
+                    Start Service<span class="visually-hidden">: Submit Institutional Compliance Report</span>
+                    <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+                  </a>
+                </article>
+              </li>
+              </ul>
+
+              <p class="catalogue__empty" data-catalogue-empty hidden>No services match these filters. Try a different search or category.</p>
+              <p class="visually-hidden" role="status" aria-live="polite" data-share-status></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="popular-title">
+          <h2 class="section__title" id="popular-title">Popular services</h2>
+          <ul class="service-grid">
+            <li>
+              <a class="service-link" href="#">
+                <img class="service-link__icon" src="assets/icons/service-registration.svg" alt="" width="32" height="32">
+                <span class="service-link__label">Update Registration Details</span>
+                <span class="service-link__arrow"><img src="assets/icons/arrow-right.svg" alt="" width="18" height="18"></span>
+              </a>
+            </li>
+            <li>
+              <a class="service-link" href="#">
+                <img class="service-link__icon" src="assets/icons/service-certificate.svg" alt="" width="32" height="32">
+                <span class="service-link__label">Apply for a scholarship</span>
+                <span class="service-link__arrow"><img src="assets/icons/arrow-right.svg" alt="" width="18" height="18"></span>
+              </a>
+            </li>
+            <li>
+              <a class="service-link" href="#">
+                <img class="service-link__icon" src="assets/icons/service-book.svg" alt="" width="32" height="32">
+                <span class="service-link__label">Certificate equivalency</span>
+                <span class="service-link__arrow"><img src="assets/icons/arrow-right.svg" alt="" width="18" height="18"></span>
+              </a>
+            </li>
+            <li>
+              <a class="service-link" href="#">
+                <img class="service-link__icon" src="assets/icons/service-certificate.svg" alt="" width="32" height="32">
+                <span class="service-link__label">Verify a certificate</span>
+                <span class="service-link__arrow"><img src="assets/icons/arrow-right.svg" alt="" width="18" height="18"></span>
+              </a>
+            </li>
+            <li>
+              <a class="service-link" href="#">
+                <img class="service-link__icon" src="assets/icons/service-book.svg" alt="" width="32" height="32">
+                <span class="service-link__label">Check application status</span>
+                <span class="service-link__arrow"><img src="assets/icons/arrow-right.svg" alt="" width="18" height="18"></span>
+              </a>
+            </li>
+            <li>
+              <a class="service-link" href="#">
+                <img class="service-link__icon" src="assets/icons/service-inquiry.svg" alt="" width="32" height="32">
+                <span class="service-link__label">Submit an inquiry</span>
+                <span class="service-link__arrow"><img src="assets/icons/arrow-right.svg" alt="" width="18" height="18"></span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="help-strip" aria-labelledby="help-title">
+          <span class="help-strip__icon"><img src="assets/icons/phone.svg" alt="" width="24" height="24"></span>
+          <div class="help-strip__text">
+            <h2 class="help-strip__title" id="help-title">Still can’t find what you need?</h2>
+            <p>Send an inquiry or feedback and our team will get back to you.</p>
+          </div>
+          <a class="btn btn--outline" href="#">Contact us</a>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ============================ Site footer ============================ -->
+  <footer class="site-footer">
+    <div class="site-footer__decor" aria-hidden="true"><span></span><span></span></div>
+
+    <div class="container site-footer__inner">
+      <div class="site-footer__top">
+        <a class="logo logo--footer" href="#" aria-label="Ministry of Higher Education, State of Kuwait – home">
+          <span class="logo__wordmark"><img src="assets/images/logo-mohe-footer.png" alt="" width="189" height="98"></span>
+          <img class="logo__emblem" src="assets/images/emblem-kuwait.png" alt="" width="73" height="83">
+        </a>
+
+        <form class="newsletter" action="#" novalidate data-newsletter>
+          <label class="newsletter__label" for="newsletter-email">Subscribe to our newsletter</label>
+          <div class="newsletter__controls">
+            <div class="newsletter__field">
+              <img src="assets/icons/mail.svg" alt="" width="24" height="24">
+              <input id="newsletter-email" type="email" name="email" placeholder="Enter Email Address"
+                     autocomplete="email" required aria-describedby="newsletter-status">
+            </div>
+            <button class="newsletter__submit" type="submit" aria-label="Subscribe">
+              <img src="assets/icons/chevron-right.svg" alt="" width="24" height="24">
+            </button>
+          </div>
+          <p class="newsletter__status" id="newsletter-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <hr class="site-footer__divider">
+
+      <div class="site-footer__body">
+        <div class="footer-columns">
+          <nav class="footer-column" aria-labelledby="footer-platforms">
+            <h2 id="footer-platforms">Platforms</h2>
+            <ul>
+              <li><a href="#">Scholarships &amp; Equivalency</a></li>
+              <li><a href="#">Unified Admissions</a></li>
+              <li><a href="#">PUC Operations</a></li>
+              <li><a href="#">Accreditation</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-column" aria-labelledby="footer-resources">
+            <h2 id="footer-resources">Resources</h2>
+            <ul>
+              <li><a href="#">How to Apply</a></li>
+              <li><a href="#">Requirements</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Downloads</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-column" aria-labelledby="footer-ministry">
+            <h2 id="footer-ministry">Ministry</h2>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">News &amp; Media</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Tenders</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-column" aria-labelledby="footer-support">
+            <h2 id="footer-support">Support</h2>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Feedback &amp; Suggestions</a></li>
+              <li><a href="#">Report an Issue</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <ul class="social-bar">
+          <li>
+            <a class="social-link" href="#">
+              <span class="social-link__icon"><img src="assets/icons/social-instagram.svg" alt="" width="29.94" height="29.94"></span>
+              Follow us on Instagram
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="#">
+              <span class="social-link__icon"><img src="assets/icons/social-x.svg" alt="" width="22.97" height="22.97"></span>
+              Follow us on X
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="#">
+              <span class="social-link__icon"><img src="assets/icons/social-youtube.svg" alt="" width="21.33" height="22.97"></span>
+              Follow us on YouTube
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="#">
+              <span class="social-link__icon"><img src="assets/icons/social-facebook.svg" alt="" width="10.38" height="20.11"></span>
+              Follow us on Facebook
+            </a>
+          </li>
+        </ul>
+
+        <div class="site-footer__bottom">
+          <p class="site-footer__copyright">Copyright © 2021 mohe.edu.kw. All Rights Received.</p>
+          <div class="site-footer__legal">
+            <ul>
+              <li><a href="#">Terms and conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+            <img class="site-footer__dot" src="assets/icons/footer-dot.svg" alt="" width="6" height="6">
+            <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">
+              <img src="assets/icons/footer-arrow.svg" alt="" width="24" height="24">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
