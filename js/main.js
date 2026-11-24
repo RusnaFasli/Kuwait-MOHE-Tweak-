@@ -74,8 +74,10 @@
     var views = root.querySelectorAll('[data-view]');
     var sortButton = root.querySelector('[data-sort]');
     var shareStatus = root.querySelector('[data-share-status]');
+    var pagination = root.querySelector('[data-catalogue-pagination]');
+    var PAGE_SIZE = 9;
 
-    var state = { tab: 'all', category: 'all', query: '', sort: 'default' };
+    var state = { tab: 'all', category: 'all', query: '', sort: 'default', page: 1 };
     var SORT_LABELS = { 'default': 'default order', asc: 'A to Z', desc: 'Z to A' };
     var SORT_NEXT = { 'default': 'asc', asc: 'desc', desc: 'default' };
 
@@ -94,18 +96,67 @@
         return state.sort === 'asc' ? order : -order;
       });
 
-      var visible = 0;
+      var matched = ordered.filter(matches);
+      var total = matched.length;
+      var pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      state.page = Math.min(Math.max(1, state.page), pageCount);
+      var first = (state.page - 1) * PAGE_SIZE;
+      var onPage = matched.slice(first, first + PAGE_SIZE);
+
       ordered.forEach(function (service) {
-        var show = matches(service);
-        service.el.hidden = !show;
-        if (show) visible += 1;
+        service.el.hidden = onPage.indexOf(service) === -1;
         grid.appendChild(service.el);
       });
 
-      count.textContent = 'Showing (' + visible + ') ' + (visible === 1 ? 'service' : 'services');
-      empty.hidden = visible > 0;
-      grid.hidden = visible === 0;
+      count.textContent = pageCount > 1
+        ? 'Showing ' + (first + 1) + '–' + (first + onPage.length) + ' of ' + total + ' services'
+        : 'Showing (' + total + ') ' + (total === 1 ? 'service' : 'services');
+      empty.hidden = total > 0;
+      grid.hidden = total === 0;
+      renderPagination(pageCount);
     }
+
+    // Pagination only appears when the filtered list is longer than one page
+    function renderPagination(pageCount) {
+      pagination.hidden = pageCount < 2;
+      if (pageCount < 2) {
+        pagination.innerHTML = '';
+        return;
+      }
+
+      var arrow = '<img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">';
+      var html = '<button class="pagination__button pagination__button--prev" type="button" data-page="' + (state.page - 1) + '"' +
+        (state.page === 1 ? ' disabled' : '') + ' aria-label="Previous page">' + arrow + '</button>';
+      for (var page = 1; page <= pageCount; page += 1) {
+        html += '<button class="pagination__button" type="button" data-page="' + page + '"' +
+          (page === state.page ? ' aria-current="page"' : '') + ' aria-label="Page ' + page + '">' + page + '</button>';
+      }
+      html += '<button class="pagination__button" type="button" data-page="' + (state.page + 1) + '"' +
+        (state.page === pageCount ? ' disabled' : '') + ' aria-label="Next page">' + arrow + '</button>';
+      pagination.innerHTML = html;
+    }
+
+    // Any filter or sort change starts again from the first page
+    function refresh() {
+      state.page = 1;
+      render();
+    }
+
+    pagination.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-page]');
+      if (!button || button.disabled) return;
+      state.page = Number(button.dataset.page);
+      render();
+
+      // bring the top of the results back into view, then keep keyboard focus on the pager
+      var top = root.querySelector('.catalogue__toolbar').getBoundingClientRect().top;
+      if (top < 0) {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: window.scrollY + top - 16, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      var current = pagination.querySelector('[aria-current="page"]');
+      if (current) current.focus({ preventScroll: true });
+    });
 
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
@@ -113,20 +164,20 @@
         tabs.forEach(function (other) {
           other.setAttribute('aria-pressed', String(other === tab));
         });
-        render();
+        refresh();
       });
     });
 
     form.addEventListener('change', function (event) {
       if (event.target.name === 'category') {
         state.category = event.target.value;
-        render();
+        refresh();
       }
     });
 
     searchInput.addEventListener('input', function () {
       state.query = searchInput.value.trim().toLowerCase();
-      render();
+      refresh();
     });
 
     form.addEventListener('submit', function (event) {
@@ -137,7 +188,7 @@
     form.addEventListener('reset', function () {
       state.category = 'all';
       state.query = '';
-      render();
+      refresh();
     });
 
     views.forEach(function (button) {
@@ -153,8 +204,11 @@
       state.sort = SORT_NEXT[state.sort];
       sortButton.dataset.sort = state.sort;
       sortButton.setAttribute('aria-label', 'Sort services: ' + SORT_LABELS[state.sort]);
-      render();
+      refresh();
     });
+
+    // Apply paging to the initial, unfiltered list
+    render();
 
     // Share: native share sheet where available, otherwise copy the link
     grid.addEventListener('click', function (event) {

@@ -938,7 +938,8 @@ button {
 
 .catalogue__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  /* as many 260px+ columns as fit, but never more than three (a 3 × 3 page) */
+  grid-template-columns: repeat(auto-fill, minmax(max(260px, calc((100% - 40px) / 3)), 1fr));
   gap: 20px;
 }
 
@@ -954,6 +955,56 @@ button {
   font-size: 16px;
   text-align: center;
   color: var(--color-text-subtle);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pagination[hidden] {
+  display: none;
+}
+
+.pagination__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-heading);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination__button:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.pagination__button[aria-current="page"] {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.pagination__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination__button--prev img {
+  transform: scaleX(-1);
 }
 
 /* Service card */
